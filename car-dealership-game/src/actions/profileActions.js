@@ -1,6 +1,8 @@
 import {LOGIN, CREATE_ACCOUNT, SAVE, ADD_MONEY} from "./types";
 import store from "../store";
 let AWS = require( "../AWSHandler");
+let config = require("../Utils/config");
+
 const serverUrl = "http://ec2-18-223-43-200.us-east-2.compute.amazonaws.com:3000/";
 
 export const addMoney = () => dispatch => {
@@ -119,6 +121,21 @@ export const save = () => dispatch => {
     };
 
     AWS.saveProfileInS3(profile);
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if(xhttp.readyState === 4 && xhttp.status === 200){
+            console.log("Employee updated");
+        }else if(xhttp.readyState === 4){
+            let err = JSON.parse(xhttp.response);
+            alert(err.message);
+        }
+    };
+
+    xhttp.open("POST", serverUrl + "employee/updateEmployee", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify({username: profile.username, carsSold: profile.carsSold, key: config.key}));
+
     dispatch({
         type: SAVE
     });

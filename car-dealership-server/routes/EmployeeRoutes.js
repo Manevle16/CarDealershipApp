@@ -24,5 +24,28 @@ module.exports = function(){
              }
         });
 
+    employeeRouter.route("/updateEmployee")
+        .post((req, res) => {
+           let username = req.query.username;
+           let carsSold = req.query.carsSold;
+           let key = req.query.key;
+
+           if(key !== "EmployeePass"){
+               res.status(400).send(JSON.stringify({message: "Nice try"}));
+           }
+
+           if(username && carsSold != null){
+                employeeRepo.updateEmployee(username, carsSold, (err) => {
+                    if(err){
+                        res.status(400).send(JSON.stringify({message: "Server error saving profile"}));
+                        console.log(err);
+                    }else{
+                        res.status(200).send(JSON.stringify({message: "Employee updated"}));
+                    }
+                })
+           }else{
+               res.status(400).send(JSON.stringify({message: "A parameter is missing"}));
+           }
+        });
     return employeeRouter;
 };
