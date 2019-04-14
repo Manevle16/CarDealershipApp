@@ -63,7 +63,7 @@ module.exports = (function(){
         });
     }
 
-    function saveProfileInS3(profile, callback){
+    function saveProfileInS3(profile){
 
         S3.upload({
             Bucket: bucket,
@@ -74,7 +74,6 @@ module.exports = (function(){
                 alert('Problem creating profile data');
             }
             console.log("Profile Data saved");
-            callback();
         });
     }
 
@@ -87,8 +86,8 @@ module.exports = (function(){
             return getProfileFromS3(key, callback);
         },
 
-        saveProfileInS3: (profile, callback) => {
-            return saveProfileInS3(profile, callback);
+        saveProfileInS3: (profile) => {
+            return saveProfileInS3(profile);
         }
     }
 })();

@@ -1,9 +1,21 @@
-import {LOGIN, CREATE_ACCOUNT} from "./types";
+import {LOGIN, CREATE_ACCOUNT, SAVE, ADD_MONEY} from "./types";
 import store from "../store";
 let AWS = require( "../AWSHandler");
 const serverUrl = "http://ec2-18-223-43-200.us-east-2.compute.amazonaws.com:3000/";
 
+export const addMoney = () => dispatch => {
+    let profile = store.getState().profile;
+    profile.bankAccount += 1000;
+    dispatch({
+        type: ADD_MONEY,
+        payload: profile
+    })
+};
+
 export const login = (userData) => dispatch => {
+
+    userData.username = userData.username.trim();
+    userData.password = userData.password.trim();
 
     let xhttp = new XMLHttpRequest();
 
@@ -36,7 +48,8 @@ export const login = (userData) => dispatch => {
 
 export const createAccount = (userData) => dispatch => {
     let xhttp = new XMLHttpRequest();
-
+    userData.username = userData.username.trim();
+    userData.password = userData.password.trim();
 
 
     xhttp.onreadystatechange = function(){
@@ -46,7 +59,7 @@ export const createAccount = (userData) => dispatch => {
                 let xhttp2 = new XMLHttpRequest();
 
                 xhttp2.onreadystatechange = function () {
-                    if(xhttp.readyState === 4 && xhttp.status === 200){
+                    if(xhttp2.readyState === 4 && xhttp2.status === 200){
                         let payload = {
                             username: userData.username,
                             carsSold: 0,
@@ -58,8 +71,8 @@ export const createAccount = (userData) => dispatch => {
                             type: CREATE_ACCOUNT,
                             payload: payload
                         });
-                    }else if(xhttp.readyState === 4){
-                        let err = JSON.parse(xhttp.response);
+                    }else if(xhttp2.readyState === 4){
+                        let err = JSON.parse(xhttp2.response);
                         alert(err.message);
                     }
                 };
@@ -69,6 +82,21 @@ export const createAccount = (userData) => dispatch => {
 
                 userData.S3_url = S3_url;
                 xhttp2.send(JSON.stringify(userData));
+
+                let xhttp3 = new XMLHttpRequest();
+
+                xhttp3.onreadystatechange = function () {
+                    if(xhttp3.readyState === 4 && xhttp3.status === 200){
+                        console.log("Employee added");
+                    }else if(xhttp3.readyState === 4){
+                        let err = JSON.parse(xhttp3.response);
+                        alert(err.message);
+                    }
+                };
+
+                xhttp3.open("POST", serverUrl + "employee/addEmployee", true);
+                xhttp3.setRequestHeader("Content-Type", "application/json");
+                xhttp3.send(JSON.stringify({username: userData.username}));
             })
 
         }else if(xhttp.readyState === 4){
@@ -82,6 +110,16 @@ export const createAccount = (userData) => dispatch => {
 
 };
 
-export const save = (userData) => {
+export const save = () => dispatch => {
+    let profile = {
+        username: store.getState().profile.username,
+        carsSold: store.getState().profile.carsSold,
+        bankAccount: store.getState().profile.bankAccount,
+        parkingLot: store.getState().parkingLot.parkingLot
+    };
 
+    AWS.saveProfileInS3(profile);
+    dispatch({
+        type: SAVE
+    });
 };

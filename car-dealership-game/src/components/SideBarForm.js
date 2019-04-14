@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styles from '../App.module.css';
 import {connect} from "react-redux";
 import {showForm} from "../actions/popUpActions";
-import store from "../store";
+import {save, addMoney} from "../actions/profileActions";
 
 class SideBarForm extends Component {
     constructor(props){
@@ -13,11 +13,16 @@ class SideBarForm extends Component {
         this.displaySignUp = this.displaySignUp.bind(this);
         this.displayLogin = this.displayLogin.bind(this);
         this.saveProfile = this.saveProfile.bind(this);
+        this.addMoney = this.addMoney.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState(nextProps);
     }
+
+    addMoney = () => {
+        this.props.addMoney();
+    };
 
     displaySignUp = () => {
         this.props.showForm({
@@ -48,7 +53,7 @@ class SideBarForm extends Component {
     };
 
     saveProfile = () => {
-        console.log(store.getState());
+        this.props.save();
     };
 
     render() {
@@ -61,6 +66,7 @@ class SideBarForm extends Component {
                     <button onClick={this.displayLogin} className={styles.buttonClass} style={{top: '40px', left: '120px'}}>Login</button>
                     <button onClick={this.saveProfile} className={styles.buttonClass}
                             style={{top:'40px', left: '215px', visibility: this.state.buttonVisibility}}>Save</button>
+                    <button onClick={this.addMoney} className={styles.buttonClass} style={{top: '40px', left: '300px'}}>Add</button>
                 </div>
             </div>
         );
@@ -88,4 +94,4 @@ const mapStateToProps = (state) => {
     return state.sideBar;
 };
 
-export default connect(mapStateToProps, {showForm})(SideBarForm);
+export default connect(mapStateToProps, {showForm, save, addMoney})(SideBarForm);

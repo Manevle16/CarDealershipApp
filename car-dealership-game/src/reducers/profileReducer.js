@@ -1,4 +1,4 @@
-import {CREATE_ACCOUNT, LOGIN} from "../actions/types";
+import {CREATE_ACCOUNT, LOGIN, ADD_MONEY} from "../actions/types";
 
 const initialState = {
     profile: {}
@@ -6,6 +6,7 @@ const initialState = {
 
 export default function(state = initialState, action){
     switch (action.type) {
+        case ADD_MONEY:
         case LOGIN:
         case CREATE_ACCOUNT:
             return action.payload;

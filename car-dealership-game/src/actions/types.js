@@ -11,3 +11,4 @@ export const CLOSE_FORM = "CLOSE_FORM";
 export const CREATE_ACCOUNT = "CREATE_ACCOUNT";
 export const LOGIN = "LOGIN";
 export const SAVE = "SAVE";
+export const ADD_MONEY = "ADD_MONEY";
