@@ -1,0 +1,9 @@
+{
+  "name": "car-dealership-server",
+  "version": "1.0.0",
+  "dependencies": {
+    "mysql": "latest",
+    "express": "latest",
+    "body-parser": "latest"
+  }
+}
