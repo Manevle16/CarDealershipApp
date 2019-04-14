@@ -14,7 +14,7 @@ module.exports = (function(){
         params: {Bucket: bucket}
     });
 
-    function createProfileOnS3(username, callback){
+    function createProfileOnS3(username, parkingLot, callback){
         currentProfile = "Profiles/" + username + '/';
         S3.headObject({Key: currentProfile}, function (err) {
             if(!err){
@@ -33,7 +33,7 @@ module.exports = (function(){
                     username: username,
                     carsSold: 0,
                     bankAccount: 100000,
-                    parkingLot: []
+                    parkingLot: parkingLot.parkingLot
                 };
 
                 S3.upload({
@@ -79,8 +79,8 @@ module.exports = (function(){
     }
 
     return {
-        createProfileOnS3: (username, callback) => {
-            return createProfileOnS3(username, callback);
+        createProfileOnS3: (username, parkingLot, callback) => {
+            return createProfileOnS3(username, parkingLot, callback);
         },
 
         getProfileFromS3: (key, callback) => {

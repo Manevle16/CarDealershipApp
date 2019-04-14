@@ -5,6 +5,7 @@ let app = express();
 let port = process.env.PORT || 3000;
 
 let profileRouter = require('./routes/ProfileRoutes');
+let employeeRouter = require('./routes/EmployeeRoutes');
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb',extended: true}));
@@ -21,6 +22,7 @@ app.use(function(req, res, next) {
 
 app.get('/', (req, res) => res.send('Hello World!'));
 app.use("/profiles", profileRouter());
+app.use("/employee", employeeRouter());
 
 app.listen(port, function(){
     console.log("Running  on port " + port);

@@ -8,7 +8,6 @@ export default function(state = initialState, action){
     switch (action.type) {
         case LOGIN:
         case CREATE_ACCOUNT:
-            initialState.profile = action.payload;
             return action.payload;
         default:
             return state;

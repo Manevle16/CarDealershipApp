@@ -1,5 +1,5 @@
 module.exports = (function(){
-    let connection = require('../mysqlConnection').getConnection();
+    let connection = require('../mysqlConnection').getProfileConnection();
 
     return{
         addProfile: function(username, password, S3_url, callback){

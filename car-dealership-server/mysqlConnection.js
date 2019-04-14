@@ -3,34 +3,53 @@ module.exports = (function(){
     let mysql = require('mysql');
     let config = require('./Utils/config.js');
 
-    let connection = null;
+    let profileConnection = null;
+    let carConnection = null;
 
-    let connected = false;
+    function initProfileConnection(){
+        try {
+            profileConnection = mysql.createConnection({
+                host: config.host,
+                user: config.user,
+                password: config.password,
+                database: config.db,
+                port: 3306
+            });
+            profileConnection.connect();
+        }catch(err){
+            console.log(err);
+        }
 
-    function initConnection(){
-        if(!connected ){
-            try {
-                connection = mysql.createConnection({
-                    host: config.host,
-                    user: config.user,
-                    password: config.password,
-                    database: config.db,
-                    port: 3306
-                });
-                connection.connect();
-                connected = true;
-            }catch(err){
-                console.log(err);
-            }
+    }
+
+    function initCarConnection(){
+        try{
+            carConnection = mysql.createConnection({
+                host: config.host,
+                user: config.user,
+                password: config.password,
+                database: "CarDealershipTestDB"
+            });
+            carConnection.connect();
+            carConnected = true;
+        }catch(err){
+            console.log(err);
         }
     }
 
     return {
-        getConnection: function getConnection() {
-            if(connection == null) {
-                initConnection();
+        getProfileConnection: () => {
+            if(profileConnection == null) {
+                initProfileConnection();
             }
-            return connection;
+            return profileConnection;
+        },
+
+        getCarConnection: () => {
+            if(carConnection == null){
+                initCarConnection();
+            }
+            return carConnection;
         }
     }
 }());

@@ -1,4 +1,5 @@
 import {LOGIN, CREATE_ACCOUNT} from "./types";
+import store from "../store";
 let AWS = require( "../AWSHandler");
 const serverUrl = "http://ec2-18-223-43-200.us-east-2.compute.amazonaws.com:3000/";
 
@@ -41,7 +42,7 @@ export const createAccount = (userData) => dispatch => {
     xhttp.onreadystatechange = function(){
         if(xhttp.readyState === 4 && xhttp.status === 200){
 
-            AWS.createProfileOnS3(userData.username, function(S3_url){
+            AWS.createProfileOnS3(userData.username, store.getState().parkingLot, function(S3_url){
                 let xhttp2 = new XMLHttpRequest();
 
                 xhttp2.onreadystatechange = function () {
