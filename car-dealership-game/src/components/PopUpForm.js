@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import styles from '../App.module.css';
 import {closeForm} from "../actions/popUpActions";
-import {login} from "../actions/profileActions";
+import {login, createAccount} from "../actions/profileActions";
+
+
 
 class PopUpForm extends Component {
 
@@ -27,8 +29,7 @@ class PopUpForm extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-        this.setState(nextProps.popUpState);
+        this.setState(nextProps);
     }
 
     onChange = (e) => {
@@ -51,8 +52,9 @@ class PopUpForm extends Component {
         });
     };
 
-    createAccount = () => {
-
+    createAccount = (e) => {
+        e.preventDefault();
+        this.props.createAccount(this.state.formInput);
     };
 
     loginAccount = (e) => {
@@ -65,7 +67,7 @@ class PopUpForm extends Component {
             <div style={popUpStyle} hidden={this.state.visibility.popUpHidden}>
                 <form id='loginForm' onSubmit={this.loginAccount} style={{position: 'relative', display: this.state.visibility.loginVisibility}}>
                     <h2 className={styles.popUpTitle}>Login Form</h2>
-                    <button onClick={this.onClose} className={styles.xButton}>X</button>
+                    <button type='button' onClick={this.onClose} className={styles.xButton}>X</button>
                     <h3 className={styles.formTitle}>Username</h3>
                     <input className={styles.formInput} name='username' type='text' onChange={this.onChange} value={this.state.formInput.username}/>
                     <h3 className={styles.formTitle}>Password</h3>
@@ -74,7 +76,7 @@ class PopUpForm extends Component {
                 </form>
                 <form id='signUpForm' onSubmit={this.createAccount} style={{position: 'relative', display: this.state.visibility.signUpVisibility}}>
                     <h2 className={styles.popUpTitle}>Sign Up Form</h2>
-                    <button onClick={this.onClose} className={styles.xButton}>X</button>
+                    <button type='button' onClick={this.onClose} className={styles.xButton}>X</button>
                     <h3 className={styles.formTitle}>Username</h3>
                     <input className={styles.formInput} name='username' type='text' onChange={this.onChange} value={this.state.formInput.username}/>
                     <h3 className={styles.formTitle}>Password</h3>
@@ -101,11 +103,13 @@ const popUpStyle = {
 const confirmButtonStyle = {
     background: '#fff',
     position: 'absolute',
+    broderWidth: '6px',
+    borderStyle: 'solid',
     top: '150px',
     left: '50px'
 };
 
 const mapStateToProps = (state) => {
-    return state;
+    return state.popUpState;
 };
-export default connect(mapStateToProps, {closeForm, login},)(PopUpForm);
+export default connect(mapStateToProps, {closeForm, login, createAccount})(PopUpForm);

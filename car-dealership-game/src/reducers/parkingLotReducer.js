@@ -2,18 +2,18 @@ import {BUY_CAR} from "../actions/types";
 
 
 const initialState = {
+    parkingLotCords: initParkLotCords(),
     parkingLot: initParkLot()
 };
 
 export default function(state = initialState, action){
-    console.log(state);
     switch(action.type) {
         default:
             return state;
     }
 }
 
-function initParkLot() {
+function initParkLotCords() {
     let lot = [];
 
     let yList = [100, 205, 395, 505, 695, 805];
@@ -27,6 +27,18 @@ function initParkLot() {
                 left: curX
             };
             curX += 50;
+        }
+    }
+    return lot;
+}
+
+function initParkLot() {
+    let lot = [];
+
+    for(let i = 0; i < 6; i++){
+        lot[i] = [];
+        for(let j = 0; j < 16; j++){
+            lot[i][j] = null;
         }
     }
     return lot;

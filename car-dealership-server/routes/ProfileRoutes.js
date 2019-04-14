@@ -64,5 +64,25 @@ module.exports = function(){
             }
         });
 
+    profileRouter.route("/profileExists")
+        .get((req,res) => {
+            let username = req.query.username;
+
+            if(username){
+
+                profiles_repo.profileExists(username, (err, body) => {
+                    if(err){
+                        res.status(500).send(JSON.stringify({message: "Server error occurred"}));
+                    }else if(body.length < 1){
+                        res.status(200).send(JSON.stringify({message: "Account can be created"}));
+                    }else{
+                        res.status(400).send(JSON.stringify({message: "Profile with that username already exists"}));
+                    }
+                });
+            }else{
+                res.status(400).send(JSON.stringify({message: "A parameter is missing"}));
+            }
+        });
+
     return profileRouter;
 };
