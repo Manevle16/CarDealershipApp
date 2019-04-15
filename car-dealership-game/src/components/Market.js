@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {initMarket, removeCar} from "../actions/marketActions";
+import {addCar} from "../actions/inventoryAction";
 import {connect} from "react-redux";
 import styles from '../App.module.css';
 
@@ -22,18 +23,14 @@ class Market extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         this.setState(nextProps);
-    }
-
-    componentWillUpdate(nextProps, nextState, nextContext) {
-        console.log(nextProps);
-        console.log('test');
     }
 
     buyCar = (e) => {
         e.preventDefault();
-        this.props.removeCar(this.state.selectedIndex, JSON.parse(JSON.stringify(this.state.marketCars)));
+        let marketCarsCopy = JSON.parse(JSON.stringify(this.state.marketCars));
+        this.props.addCar(marketCarsCopy[this.state.selectedIndex]);
+        this.props.removeCar(this.state.selectedIndex, marketCarsCopy);
         e.target[0].selectedIndex = -1;
     };
 
@@ -70,4 +67,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {initMarket, removeCar})(Market);
+export default connect(mapStateToProps, {initMarket, removeCar, addCar})(Market);

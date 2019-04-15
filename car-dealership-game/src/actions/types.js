@@ -16,3 +16,6 @@ export const ADD_MONEY = "ADD_MONEY";
 //Market actions
 export const INIT_MARKET = "INIT_MARKET";
 export const BUY_CAR = "BUY_CAR";
+
+//Inventory Action
+export const ADD_CAR = "ADD_CAR";

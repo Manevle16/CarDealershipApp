@@ -5,6 +5,7 @@ import SideBarForm from './components/SideBarForm';
 import PopUpForm from './components/PopUpForm';
 import Profile from './components/Profile';
 import Market from './components/Market';
+import Inventory from './components/Inventory';
 import {Provider} from 'react-redux';
 import store from './store';
 import styles from './App.module.css';
@@ -22,6 +23,7 @@ class App extends Component {
                         <SideBarForm/>
                         <Profile/>
                         <Market/>
+                        <Inventory/>
                     </div>
                 </div>
             </Provider>
