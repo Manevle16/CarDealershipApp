@@ -3,10 +3,10 @@ import store from "../store";
 let AWS = require( "../AWSHandler");
 let config = require("../Utils/config");
 
-const serverUrl = "http://ec2-18-223-43-200.us-east-2.compute.amazonaws.com:3000/";
+const serverUrl = "http://ec2-18-221-61-155.us-east-2.compute.amazonaws.com:3000/";
 
 export const addMoney = () => dispatch => {
-    let profile = store.getState().profile;
+    let profile = store.getState().profile.info;
     profile.bankAccount += 1000;
     dispatch({
         type: ADD_MONEY,
@@ -27,10 +27,15 @@ export const login = (userData) => dispatch => {
 
             AWS.getProfileFromS3(profile.s3_url, function(data){
                 let payload = {
-                    username: userData.username,
-                    carsSold: data.carsSold,
-                    bankAccount: data.bankAccount,
-                    S3_url: profile.s3_url
+                    info: {
+                        username: userData.username,
+                        carsSold: data.carsSold,
+                        bankAccount: data.bankAccount,
+                        S3_url: profile.s3_url
+                    },
+                    panelInfo: {
+                        visibility: 'visible'
+                    }
                 };
 
                 dispatch({
@@ -63,10 +68,15 @@ export const createAccount = (userData) => dispatch => {
                 xhttp2.onreadystatechange = function () {
                     if(xhttp2.readyState === 4 && xhttp2.status === 200){
                         let payload = {
-                            username: userData.username,
-                            carsSold: 0,
-                            bankAccount: 100000,
-                            S3_url: S3_url
+                            info: {
+                                username: userData.username,
+                                carsSold: 0,
+                                bankAccount: 100000,
+                                S3_url: S3_url
+                            },
+                            panelInfo:{
+                                visibility: 'visible'
+                            }
                         };
 
                         dispatch({
@@ -114,10 +124,10 @@ export const createAccount = (userData) => dispatch => {
 
 export const save = () => dispatch => {
     let profile = {
-        username: store.getState().profile.username,
-        carsSold: store.getState().profile.carsSold,
-        bankAccount: store.getState().profile.bankAccount,
-        parkingLot: store.getState().parkingLot.parkingLot
+        username: store.getState().profile.info.username,
+        carsSold: store.getState().profile.info.carsSold,
+        bankAccount: store.getState().profile.info.bankAccount,
+        parkingLot: store.getState().parkingLot.info.parkingLot
     };
 
     AWS.saveProfileInS3(profile);

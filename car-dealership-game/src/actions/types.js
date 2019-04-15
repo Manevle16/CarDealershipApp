@@ -1,6 +1,6 @@
 //ParkingLot Actions
 export const INIT_PARKING_LOT = "INIT_PARKING_LOT";
-export const BUY_CAR = "BUY_CAR";
+
 
 
 //Pop up actions
@@ -12,3 +12,7 @@ export const CREATE_ACCOUNT = "CREATE_ACCOUNT";
 export const LOGIN = "LOGIN";
 export const SAVE = "SAVE";
 export const ADD_MONEY = "ADD_MONEY";
+
+//Market actions
+export const INIT_MARKET = "INIT_MARKET";
+export const BUY_CAR = "BUY_CAR";

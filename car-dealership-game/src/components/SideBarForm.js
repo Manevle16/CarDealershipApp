@@ -58,37 +58,23 @@ class SideBarForm extends Component {
 
     render() {
         return (
-            <div style={sideBarStyle}>
-                <h1 style={headerStyle}>Tools</h1>
-                <div className={styles.panel} style={{height: '85px', top: '65px'}}>
-                    <h2 style={{position: 'absolute', left: '5px', marginTop: '0px', color: 'white'}}>Profile</h2>
-                    <button onClick={this.displaySignUp} className={styles.buttonClass} style={{top: '40px', left: '6px'}}>Sign Up</button>
-                    <button onClick={this.displayLogin} className={styles.buttonClass} style={{top: '40px', left: '120px'}}>Login</button>
-                    <button onClick={this.saveProfile} className={styles.buttonClass}
-                            style={{top:'40px', left: '215px', visibility: this.state.buttonVisibility}}>Save</button>
-                    <button onClick={this.addMoney} className={styles.buttonClass} style={{top: '40px', left: '300px'}}>Add</button>
-                </div>
+
+            <div className={styles.panel} style={{height: '85px', top: '65px'}}>
+                <h2 className={styles.panelHeader}>Profile</h2>
+                <button onClick={this.displaySignUp} className={styles.buttonClass} style={{top: '40px', left: '6px'}}>Sign Up</button>
+                <button onClick={this.displayLogin} className={styles.buttonClass} style={{top: '40px', left: '120px'}}>Login</button>
+                <button onClick={this.saveProfile} className={styles.buttonClass}
+                        style={{top:'40px', left: '215px', visibility: this.state.buttonVisibility}}>Save</button>
+                <button onClick={this.addMoney} className={styles.buttonClass} style={{top: '40px', left: '300px'}}>Add</button>
             </div>
+
         );
     }
 }
 
-const headerStyle = {
-    position: 'absolute',
-    left: '280px',
-    color: 'white'
-};
 
-const sideBarStyle = {
-    position: 'absolute',
-    background: '#344955',
-    height: '990px',
-    width: '650px',
-    left: '1000px',
-    borderStyle: 'solid',
-    borderWidth: '6px',
-    zIndex: -1
-};
+
+
 
 const mapStateToProps = (state) => {
     return state.sideBar;
