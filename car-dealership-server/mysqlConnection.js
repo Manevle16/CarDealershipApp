@@ -28,10 +28,9 @@ module.exports = (function(){
                 host: config.host,
                 user: config.user,
                 password: config.password,
-                database: "CarDealershipTestDB"
+                database: "CarDealershipProductionDB"
             });
             carConnection.connect();
-            carConnected = true;
         }catch(err){
             console.log(err);
         }

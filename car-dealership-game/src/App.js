@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ParkingLot from './components/ParkingLot';
-import Car from './components/Car';
 import SideBarForm from './components/SideBarForm';
 import PopUpForm from './components/PopUpForm';
 import Profile from './components/Profile';
@@ -17,7 +16,6 @@ class App extends Component {
                 <div className="App">
                     <PopUpForm/>
                     <ParkingLot/>
-                    <Car/>
                     <div style={sideBarStyle}>
                         <h1 style={headerStyle}>Tools</h1>
                         <SideBarForm/>

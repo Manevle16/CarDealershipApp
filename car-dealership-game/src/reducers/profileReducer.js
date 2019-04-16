@@ -1,7 +1,10 @@
 import {CREATE_ACCOUNT, LOGIN, ADD_MONEY} from "../actions/types";
 
 const initialState = {
-    profile: {}
+    profile: {},
+    panelInfo: {
+        display: 'hidden'
+    }
 };
 
 export default function(state = initialState, action){

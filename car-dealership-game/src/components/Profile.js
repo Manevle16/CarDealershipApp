@@ -14,7 +14,7 @@ class Profile extends Component {
                 S3_Url: ''
             },
             panelInfo: {
-                display: 'block'
+                display: 'none'
             }
         }
     }

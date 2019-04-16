@@ -3,7 +3,7 @@ import store from "../store";
 let AWS = require( "../AWSHandler");
 let config = require("../Utils/config");
 
-const serverUrl = "http://ec2-18-221-61-155.us-east-2.compute.amazonaws.com:3000/";
+const serverUrl = config.server;
 
 export const addMoney = () => dispatch => {
     let profile = store.getState().profile.info;

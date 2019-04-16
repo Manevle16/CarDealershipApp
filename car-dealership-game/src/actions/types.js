@@ -1,6 +1,6 @@
 //ParkingLot Actions
 export const INIT_PARKING_LOT = "INIT_PARKING_LOT";
-
+export const PARK_CAR = "PARK_CAR";
 
 
 //Pop up actions

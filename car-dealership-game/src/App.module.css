@@ -16,6 +16,22 @@
     border-color: black;
 }
 
+.disabledButton{
+    background-color: #876b42;
+    color: darkgrey;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial Black, Gadget, sans-serif;
+    position: absolute;
+    z-index: 999;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+}
 .panel{
     border-style: outset;
     border-width: 3px;
@@ -75,5 +91,7 @@
     border-style: solid;
     border-width: 4px;
     border-color: #000;
-    font-size: 18px;
+    font-size: 14px;
+    font-family: monospace;
+    overflow: auto;
 }

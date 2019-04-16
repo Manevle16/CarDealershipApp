@@ -1,25 +1,29 @@
 import {INIT_MARKET, BUY_CAR} from "./types";
+let config = require("../Utils/config");
 
-export const initMarket = () => dispatch =>{
-    dispatch({
-        type: INIT_MARKET,
-        payload: {
-            marketCars: [{
-                key: 1,
-                name: 'Click Me'
-            },{
-                key: 2,
-                name: 'A'
-            },{
-                key: 3,
-                name: 'B'
-            },{
-                key: 4,
-                name: 'C'
-            }],
-            selectedIndex: 1
+let serverUrl = config.server;
+export const initMarket = () => dispatch => {
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function(){
+        if(xhttp.readyState === 4 && xhttp.status === 200){
+            let body = JSON.parse(xhttp.response);
+            console.log(body);
+            dispatch({
+                type: INIT_MARKET,
+                payload: {
+                    marketCars: body,
+                    selectedIndex: null
+                }
+            })
+        }else if(xhttp.readyState === 4){
+            let err = JSON.parse(xhttp.response);
+            alert(err.message);
         }
-    })
+    };
+
+    xhttp.open("GET", serverUrl + "car/getRandom15Cars");
+    xhttp.send();
 };
 
 export const removeCar = (ind, marketCars) => dispatch => {
