@@ -1,4 +1,4 @@
-import {ADD_CAR} from "./types";
+import {ADD_CAR, SELECT_CAR} from "./types";
 import store from '../store';
 
 export const addCar = (car) => dispatch => {
@@ -10,4 +10,13 @@ export const addCar = (car) => dispatch => {
               carInventory
           }
       })
+};
+
+export const selectCar = (ind) => dispatch => {
+    dispatch({
+        type: SELECT_CAR,
+        payload:{
+            selectedIndex: ind
+        }
+    })
 };

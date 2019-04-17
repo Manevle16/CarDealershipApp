@@ -19,7 +19,8 @@ class PopUpForm extends Component {
             formInput: {
                 username: '',
                 password: ''
-            }
+            },
+
         };
 
         this.onChange = this.onChange.bind(this);
@@ -94,8 +95,8 @@ const popUpStyle = {
     height: '250px',
     width: '700px',
     zIndex: '3',
-    left: '500px',
-    top: '200px',
+    left: '614px',
+    top: '248px',
     borderWidth: '6px',
     borderStyle: 'solid'
 };

@@ -55,9 +55,6 @@ export const parkCar = (car) => dispatch => {
 
     dispatch({
         type: PARK_CAR,
-        payload: {
-            parkingLot,
-            parkingLotCords: store.getState().parkingLot.parkingLotCords
-        }
+        payload: parkingLot
     })
 };

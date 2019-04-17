@@ -3,7 +3,7 @@ import {CREATE_ACCOUNT, LOGIN, ADD_MONEY} from "../actions/types";
 const initialState = {
     profile: {},
     panelInfo: {
-        display: 'hidden'
+        display: 'none'
     }
 };
 

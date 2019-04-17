@@ -25,7 +25,7 @@ class Profile extends Component {
 
     render() {
         return (
-            <div className={styles.panel} style={{height: '60px', top: '70px', display: this.state.panelInfo.display}}>
+            <div className={styles.panel} style={{height: '60px', top: '10px', display: this.state.panelInfo.display}}>
                 <h3 className={styles.panelHeader}>User:</h3>
                 <h3 className={styles.panelHeader} style={{left: '60px'}}>{this.state.info.username}</h3>
                 <h3 className={styles.panelHeader} style={{top: '30px'}}>Account Balance:</h3>

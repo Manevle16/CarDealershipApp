@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {initMarket, removeCar} from "../actions/marketActions";
+import {initMarket, removeCar, setRefreshDisabled, selectMarketCar} from "../actions/marketActions";
 import {addCar} from "../actions/inventoryActions";
 import {parkCar} from "../actions/parkingLotActions";
 import {connect} from "react-redux";
@@ -24,7 +24,6 @@ class Market extends Component {
     }
 
     componentDidMount() {
-        let count = 0;
         this.props.initMarket();
     }
 
@@ -49,18 +48,17 @@ class Market extends Component {
     };
 
     onChange = (e) => {
-        this.setState({selectedIndex: e.target.selectedIndex});
+        this.props.selectMarketCar(e.target.selectedIndex);
     };
 
     refresh = () =>{
-        this.setState({refreshDisabled: true});
+        this.props.setRefreshDisabled(30, true);
         let count = 30;
         let counter = setInterval(() => {
             count--;
-            this.setState({value: count});
-            console.log(count);
+            this.props.setRefreshDisabled(count, true);
             if(count === 0){
-                this.setState({value: "refresh", refreshDisabled: false});
+                this.props.setRefreshDisabled("refresh", false);
                 clearInterval(counter);
             }
         }, 1000);
@@ -77,23 +75,28 @@ class Market extends Component {
 
         const refreshButton = (function(refreshDisabled, value, refresh){
             if(!refreshDisabled){
-                return( <button onClick={refresh} className={styles.buttonClass} disabled={refreshDisabled} style={{right: "10px", top: "3px"}}>{value}</button>);
+                return( <button onClick={refresh} className={styles.buttonClass} disabled={refreshDisabled} style={{right: "10px", top: "10px"}}>{value}</button>);
             }else{
-                return( <button className={styles.disabledButton} disabled={refreshDisabled} style={{right: "10px", top: "3px"}}>{value}</button>);
+                return( <button className={styles.disabledButton} disabled={refreshDisabled} style={{right: "10px", top: "10px"}}>{value}</button>);
             }
         })(this.state.refreshDisabled, this.state.value, this.refresh);
 
 
         return (
 
-            <div className={styles.panel} style={{height: '240px', top:'75px', visibility: this.state.visibility}}>
+            <div className={styles.panel} style={{height: '240px', top:'15px', visibility: this.state.visibility}}>
                 <h2 className={styles.panelHeader}>Market</h2>
                 {refreshButton}
                 <form onSubmit={this.buyCar} >
-                    <select className={styles.marketSelect} onChange={this.onChange}  size='6'>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'10px'}}>Maufacturer</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'185px'}}>Model</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'465px'}}>Year</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'540px'}}>Color</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'640px'}}>Price</h3>
+                    <select className={styles.marketSelect} onChange={this.onChange}  size='6' style={{top:'60px'}}>
                         {marketOptions}
                     </select>
-                    <button type='submit' className={styles.buttonClass} style={{top: '190px', left: '5px'}}>Buy Car</button>
+                    <button type='submit' className={styles.buttonClass} style={{top: '195px', left: '5px'}}>Buy Car</button>
                 </form>
             </div>
         );
@@ -112,4 +115,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {initMarket, removeCar, addCar, parkCar})(Market);
+export default connect(mapStateToProps, {initMarket, removeCar, addCar, parkCar, setRefreshDisabled, selectMarketCar})(Market);

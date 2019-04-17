@@ -59,7 +59,7 @@ class SideBarForm extends Component {
     render() {
         return (
 
-            <div className={styles.panel} style={{height: '85px', top: '65px'}}>
+            <div className={styles.panel} style={{height: '85px', top: '5px'}}>
                 <h2 className={styles.panelHeader}>Profile</h2>
                 <button onClick={this.displaySignUp} className={styles.buttonClass} style={{top: '40px', left: '6px'}}>Sign Up</button>
                 <button onClick={this.displayLogin} className={styles.buttonClass} style={{top: '40px', left: '120px'}}>Login</button>

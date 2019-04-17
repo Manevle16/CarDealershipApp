@@ -9,6 +9,10 @@ const initialState = {
 export default function(state = initialState, action){
     switch(action.type) {
         case PARK_CAR:
+            return {
+                ...state,
+                parkingLot: action.payload
+            };
         case INIT_PARKING_LOT:
             return action.payload;
         default:

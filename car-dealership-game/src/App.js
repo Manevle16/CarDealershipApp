@@ -18,7 +18,6 @@ class App extends Component {
                     <PopUpForm/>
                     <ParkingLot/>
                     <div style={sideBarStyle}>
-                        <h1 style={headerStyle}>Tools</h1>
                         <SideBarForm/>
                         <Profile/>
                         <Market/>
@@ -32,20 +31,14 @@ class App extends Component {
 }
 
 const sideBarStyle = {
-    position: 'absolute',
+    position: 'relative',
     background: '#344955',
     height: '990px',
     width: '45%',
     left: '1000px',
     borderStyle: 'solid',
     borderWidth: '6px',
-    zIndex: -1
-};
-
-const headerStyle = {
-    position: 'absolute',
-    left: '45%',
-    color: 'white'
+    zIndex: 0
 };
 
 export default App;

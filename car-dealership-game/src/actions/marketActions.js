@@ -1,4 +1,4 @@
-import {INIT_MARKET, BUY_CAR} from "./types";
+import {INIT_MARKET, BUY_CAR, DISABLE_MARKET_REFRESH, SELECT_MARKET_CAR} from "./types";
 import uuid from 'uuid';
 
 let config = require("../Utils/config");
@@ -17,8 +17,7 @@ export const initMarket = () => dispatch => {
             dispatch({
                 type: INIT_MARKET,
                 payload: {
-                    marketCars: body,
-                    selectedIndex: null
+                    marketCars: body
                 }
             })
         }else if(xhttp.readyState === 4){
@@ -35,9 +34,23 @@ export const removeCar = (ind, marketCars) => dispatch => {
     marketCars.splice(ind, 1);
     dispatch({
         type: BUY_CAR,
+        payload: marketCars
+    })
+};
+
+export const setRefreshDisabled = (value, refreshDisabled) => dispatch => {
+    dispatch({
+        type: DISABLE_MARKET_REFRESH,
         payload: {
-            marketCars,
-            selectedIndex: -1
+            value,
+            refreshDisabled
         }
+    })
+};
+
+export const selectMarketCar = (ind) => dispatch => {
+    dispatch({
+        type: SELECT_MARKET_CAR,
+        payload: ind
     })
 };

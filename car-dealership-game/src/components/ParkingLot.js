@@ -19,7 +19,6 @@ class ParkingLot extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         if(nextProps.parkingLotCords == null){
             this.setState({parkingLot: nextProps.parkingLot});
         }else {
@@ -32,7 +31,6 @@ class ParkingLot extends Component {
         const ParkedCars = this.props.parkingLot.map((lots, y) => {
             return lots.map((car, x) => {
                 if(car != null){
-                    console.log("x: " + x + " y: " + y);
                     let imgSrc = imgUrl + car.Color + "-car.png";
                     return <img src={imgSrc} style={{top: this.state.parkingLotCords[y][x].top, left: this.state.parkingLotCords[y][x].left, position: 'absolute',
                                                     transform: this.state.parkingLotCords[y][x].rotation }}/>
@@ -52,7 +50,7 @@ class ParkingLot extends Component {
 const parkingLotStyle = {
     position: 'relative',
     float: 'left',
-    zIndex: '0'
+    zIndex: '-1'
 };
 
 const mapStateToProps = (state) => {

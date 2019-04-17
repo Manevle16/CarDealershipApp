@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94c5a7dd-d0c6-415e-9c0e-826e2f692337" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/car-dealership-server/Repository/customer_repo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/car-dealership-server/routes/CustomerRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/App.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/actions/marketActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/actions/marketActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/actions/profileActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/actions/profileActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/components/Inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/components/Inventory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/components/Market.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/components/Market.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/components/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/components/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-game/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-game/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car-dealership-server/handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-server/handler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car-dealership-server/Repository/customer_repo.js" beforeDir="false" afterPath="$PROJECT_DIR$/car-dealership-server/Repository/customer_repo.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,45 +16,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/customerActions.js">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Market.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/customerReducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Customers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
+            <state relative-caret-position="104">
+              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/marketActions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="30" column="17" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="30" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Inventory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="65" />
+            <state relative-caret-position="792">
+              <caret line="44" column="75" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -85,49 +40,94 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car-dealership-server/routes/CarRoutes.js">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/PopUpForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="17" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="13" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car-dealership-server/Repository/employee_repo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="95" selection-start-line="12" selection-start-column="95" selection-end-line="12" selection-end-column="95" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="522">
+              <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car-dealership-server/Repository/car_repo.js">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="6" selection-end-column="77" />
+            <state relative-caret-position="428">
+              <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car-dealership-server/routes/EmployeeRoutes.js">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/ParkingLot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="266">
+              <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Customers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/types.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/customerActions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="53" column="2" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Profile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="27" column="73" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/SideBarForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-198">
+              <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -167,42 +167,42 @@
         <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/loginReducer.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/routes/ProfileRoutes.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/actions/popUpActions.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/popUpReducer.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/components/PopUpForm.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/Repository/profiles_repo.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/AWSHandler.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/Repository/employee_repo.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/sideBarReducer.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/components/SideBarForm.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/actions/inventoryAction.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/parkingLotActions.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/Utils/config.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/mysqlConnection.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/routes/EmployeeRoutes.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/routes/CarRoutes.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/Repository/car_repo.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/components/ParkingLot.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/profileReducer.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/inventoryActions.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/parkingLotReducer.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/inventoryReducer.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/marketReducer.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/marketActions.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/actions/profileActions.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/Utils/config.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/App.module.css" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/App.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/components/Market.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/components/Inventory.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/components/Profile.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/types.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/index.js" />
-        <option value="$PROJECT_DIR$/car-dealership-server/Repository/customer_repo.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/routes/CustomerRoutes.js" />
         <option value="$PROJECT_DIR$/car-dealership-server/handler.js" />
-        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/customerActions.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/inventoryActions.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/inventoryReducer.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/parkingLotActions.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/parkingLotReducer.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/marketActions.js" />
+        <option value="$PROJECT_DIR$/car-dealership-server/Repository/customer_repo.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/profileReducer.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/customerReducer.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/marketReducer.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/components/Profile.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/components/Inventory.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/components/Market.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/reducers/popUpReducer.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/components/SideBarForm.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/components/ParkingLot.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/App.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/components/PopUpForm.js" />
         <option value="$PROJECT_DIR$/car-dealership-game/src/components/Customers.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/types.js" />
+        <option value="$PROJECT_DIR$/car-dealership-game/src/actions/customerActions.js" />
       </list>
     </option>
   </component>
@@ -337,12 +337,12 @@
       <workItem from="1555139659900" duration="4599000" />
       <workItem from="1555144267467" duration="21618000" />
       <workItem from="1555212036776" duration="63003000" />
-      <workItem from="1555400096639" duration="9812000" />
+      <workItem from="1555400096639" duration="18821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111656000" />
+    <option name="totallyTimeSpent" value="120665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -360,8 +360,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32995495" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49315068" visible="true" weight="0.32194045" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5068493" side_tool="true" visible="true" weight="0.32194045" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4910432" visible="true" weight="0.32194045" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5089568" side_tool="true" visible="true" weight="0.32194045" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -398,13 +398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/popUpReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/sideBarReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -413,33 +406,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Car.js" />
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/popUpActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/PopUpForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="112" column="27" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/SideBarForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/car-dealership-server/Utils/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -464,119 +430,10 @@
     <entry file="file://$PROJECT_DIR$/car-dealership-game/src/index.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/profileReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/parkingLotReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="34" selection-start-column="34" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/inventoryReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/marketReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/parkingLotActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/profileActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="70" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/Utils/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="67" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/car-dealership-game/src/App.module.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/ParkingLot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Market.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/inventoryActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -601,13 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-server/Repository/customer_repo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/car-dealership-server/mysqlConnection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -619,23 +469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
           <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/marketActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="30" column="17" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="30" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-server/routes/CustomerRoutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -656,27 +489,174 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/customerActions.js">
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/inventoryActions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        <state relative-caret-position="270">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="20" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/profileActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
+          <caret line="8" column="70" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/parkingLotActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/marketActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-server/routes/CustomerRoutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-server/Repository/customer_repo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/profileReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/parkingLotReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/customerReducer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="72">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/inventoryReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/marketReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/popUpActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/reducers/popUpReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/Utils/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="67" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Market.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/PopUpForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/ParkingLot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="27" column="73" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/SideBarForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Inventory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="65" />
+        <state relative-caret-position="792">
+          <caret line="44" column="75" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -685,10 +665,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/car-dealership-game/src/components/Customers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
+        <state relative-caret-position="414">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car-dealership-game/src/actions/customerActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="53" column="2" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
           </folding>
         </state>
       </provider>

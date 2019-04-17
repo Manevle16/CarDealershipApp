@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import styles from '../App.module.css';
+import {selectCar} from "../actions/inventoryActions";
 import store from "../store";
 
 class Inventory extends Component {
@@ -11,14 +12,25 @@ class Inventory extends Component {
             carInventory: [],
             selectedIndex: -1,
             visibility: 'visible'
-        }
+        };
+
+        this.onChange = this.onChange.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.selectedIndex == null){
-            this.setState({carInventory: nextProps.carInventory, visibility: nextProps.visibility});
+        if(nextProps.selectedIndex != null){
+            this.setState({selectedIndex: nextProps.selectedIndex});
+        }else if(nextProps.visibility == null){
+            this.setState({carInventory: nextProps.carInventory});
+        }else{
+            this.setState(nextProps);
         }
     }
+
+    onChange = (e) => {
+        this.props.selectCar(e.target.selectedIndex);
+        console.log(store.getState().customer.selectedIndex);
+    };
 
     render() {
         const Options = this.props.carInventory.map(car => {
@@ -30,9 +42,9 @@ class Inventory extends Component {
         });
 
         return (
-            <div className={styles.panel} style={{height: '180px', top: '80px', visibility: this.state.visibility}}>
+            <div className={styles.panel} style={{height: '180px', top: '20px', visibility: this.state.visibility}}>
                 <h2 className={styles.panelHeader}>Inventory</h2>
-                <select className={styles.marketSelect} size='6'>
+                <select onChange={this.onChange} className={styles.marketSelect} size='6'>
                     {Options}
                 </select>
             </div>
@@ -48,4 +60,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, null)(Inventory);
+export default connect(mapStateToProps, {selectCar})(Inventory);

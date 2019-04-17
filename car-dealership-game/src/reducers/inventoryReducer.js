@@ -1,8 +1,8 @@
-import {ADD_CAR, LOGIN} from "../actions/types";
+import {ADD_CAR, LOGIN, SELECT_CAR} from "../actions/types";
 
 const initialState = {
     carInventory: [],
-    selected: -1,
+    selectedIndex: -1,
     visibility: 'hidden'
 };
 
@@ -10,11 +10,19 @@ export default function(state = initialState, action){
     switch (action.type) {
         case LOGIN:
             return {
-                carInventory: state.carInventory,
+                ...state,
                 visibility: 'visible'
             };
+        case SELECT_CAR:
+            return {
+                ...state,
+                selectedIndex: action.payload.selectedIndex
+            };
         case ADD_CAR:
-            return action.payload;
+            return {
+                ...state,
+                carInventory: action.payload.carInventory
+            };
         default:
             return state
     }
