@@ -6,11 +6,9 @@ let config = require("../Utils/config");
 const serverUrl = config.server;
 
 export const addMoney = () => dispatch => {
-    let profile = JSON.parse(JSON.stringify(store.getState().profile));
-    profile.info.bankAccount += 1000;
     dispatch({
         type: ADD_MONEY,
-        payload: profile
+        payload: 1000
     })
 };
 

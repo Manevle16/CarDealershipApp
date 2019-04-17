@@ -32,7 +32,7 @@ class ParkingLot extends Component {
             return lots.map((car, x) => {
                 if(car != null){
                     let imgSrc = imgUrl + car.Color + "-car.png";
-                    return <img src={imgSrc} style={{top: this.state.parkingLotCords[y][x].top, left: this.state.parkingLotCords[y][x].left, position: 'absolute',
+                    return <img src={imgSrc} key={car.key} style={{top: this.state.parkingLotCords[y][x].top, left: this.state.parkingLotCords[y][x].left, position: 'absolute',
                                                     transform: this.state.parkingLotCords[y][x].rotation }}/>
                 }
             });

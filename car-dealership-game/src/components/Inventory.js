@@ -18,26 +18,20 @@ class Inventory extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.selectedIndex != null){
-            this.setState({selectedIndex: nextProps.selectedIndex});
-        }else if(nextProps.visibility == null){
-            this.setState({carInventory: nextProps.carInventory});
-        }else{
-            this.setState(nextProps);
-        }
+        this.setState(nextProps);
     }
 
     onChange = (e) => {
         this.props.selectCar(e.target.selectedIndex);
-        console.log(store.getState().customer.selectedIndex);
     };
 
     render() {
         const Options = this.props.carInventory.map(car => {
             if(car != null) {
+                let price = "$" + car.Price.toLocaleString();
                 let output = car.Manufacturer.padEnd(15, "\u00A0") + " " + car.Model.padEnd(25, "\u00A0") + " "
-                    + car.Year.toString().padEnd(6, "\u00A0") + " " + car.Color.padEnd(8, "\u00A0") + " $" + car.Price;
-                return <option key={car.key}>{output}</option>;
+                    + car.Year.toString().padEnd(6, "\u00A0") + " " + car.Color.padEnd(8, "\u00A0") + price.padStart(10, "\u00A0");
+                return <option key={car.key} style={{cursor: 'pointer'}}>{output}</option>;
             }
         });
 

@@ -44,7 +44,7 @@ class Market extends Component {
         this.props.addCar(marketCarsCopy[this.state.selectedIndex]);
         this.props.parkCar(marketCarsCopy[this.state.selectedIndex]);
         this.props.removeCar(this.state.selectedIndex, marketCarsCopy);
-        e.target[0].selectedIndex = -1;
+      //  e.target[0].selectedIndex = -1;
     };
 
     onChange = (e) => {
@@ -68,9 +68,10 @@ class Market extends Component {
 
     render() {
         const marketOptions = this.props.marketCars.map(car => {
+            let price = "$" + car.Price.toLocaleString();
             let output = car.Manufacturer.padEnd(15, "\u00A0") + " " + car.Model.padEnd(25, "\u00A0") + " "
-                + car.Year.toString().padEnd(6, "\u00A0") + " " + car.Color.padEnd(8, "\u00A0") + " $" + car.Price;
-            return <option key={car.key}>{output}</option>;
+                + car.Year.toString().padEnd(6, "\u00A0") + " " + car.Color.padEnd(8, "\u00A0") + price.padStart(10, "\u00A0");
+            return <option key={car.key} style={{cursor: 'pointer'}}>{output}</option>;
         });
 
         const refreshButton = (function(refreshDisabled, value, refresh){
