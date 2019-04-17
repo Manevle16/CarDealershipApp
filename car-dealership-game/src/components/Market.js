@@ -13,7 +13,7 @@ class Market extends Component {
         this.state = {
             marketCars: [],
             selectedIndex: null,
-            visibility: 'hidden',
+            visibility: 'visible',
             refreshDisabled: false,
             value: "refresh"
         };
@@ -36,6 +36,8 @@ class Market extends Component {
             this.setState(nextProps);
         }
     }
+
+
 
     buyCar = (e) => {
         e.preventDefault();
@@ -70,7 +72,7 @@ class Market extends Component {
         const marketOptions = this.props.marketCars.map(car => {
             let output = car.Manufacturer.padEnd(15, "\u00A0") + " " + car.Model.padEnd(25, "\u00A0") + " "
                 + car.Year.toString().padEnd(6, "\u00A0") + " " + car.Color.padEnd(8, "\u00A0") + " $" + car.Price;
-            return <option>{output}</option>;
+            return <option key={car.key}>{output}</option>;
         });
 
         const refreshButton = (function(refreshDisabled, value, refresh){
@@ -88,7 +90,7 @@ class Market extends Component {
                 <h2 className={styles.panelHeader}>Market</h2>
                 {refreshButton}
                 <form onSubmit={this.buyCar} >
-                    <select className={styles.marketSelect} onChange={this.onChange}  size='8'>
+                    <select className={styles.marketSelect} onChange={this.onChange}  size='6'>
                         {marketOptions}
                     </select>
                     <button type='submit' className={styles.buttonClass} style={{top: '190px', left: '5px'}}>Buy Car</button>

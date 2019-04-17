@@ -10,7 +10,7 @@ class Inventory extends Component {
         this.state = {
             carInventory: [],
             selectedIndex: -1,
-            visibility: 'hidden'
+            visibility: 'visible'
         }
     }
 
@@ -25,14 +25,14 @@ class Inventory extends Component {
             if(car != null) {
                 let output = car.Manufacturer.padEnd(15, "\u00A0") + " " + car.Model.padEnd(25, "\u00A0") + " "
                     + car.Year.toString().padEnd(6, "\u00A0") + " " + car.Color.padEnd(8, "\u00A0") + " $" + car.Price;
-                return <option>{output}</option>;
+                return <option key={car.key}>{output}</option>;
             }
         });
 
         return (
-            <div className={styles.panel} style={{height: '240px', top: '80px', visibility: this.state.visibility}}>
+            <div className={styles.panel} style={{height: '180px', top: '80px', visibility: this.state.visibility}}>
                 <h2 className={styles.panelHeader}>Inventory</h2>
-                <select className={styles.marketSelect} size='8'>
+                <select className={styles.marketSelect} size='6'>
                     {Options}
                 </select>
             </div>

@@ -19,3 +19,6 @@ export const BUY_CAR = "BUY_CAR";
 
 //Inventory Action
 export const ADD_CAR = "ADD_CAR";
+
+//Customer actions
+export const INIT_CUSTOMER = "INIT_CUSTOMER";

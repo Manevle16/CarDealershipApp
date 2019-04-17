@@ -5,6 +5,7 @@ import profileReducer from './profileReducer';
 import sideBarReducer from './sideBarReducer';
 import marketReducer from './marketReducer';
 import inventoryReducer from './inventoryReducer';
+import customerReducer from './customerReducer';
 
 export default combineReducers({
     parkingLot: parkingLotReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
     profile: profileReducer,
     sideBar: sideBarReducer,
     market: marketReducer,
-    inventory: inventoryReducer
+    inventory: inventoryReducer,
+    customer: customerReducer
 });

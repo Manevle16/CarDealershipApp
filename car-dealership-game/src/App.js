@@ -5,6 +5,7 @@ import PopUpForm from './components/PopUpForm';
 import Profile from './components/Profile';
 import Market from './components/Market';
 import Inventory from './components/Inventory';
+import Customers from './components/Customers';
 import {Provider} from 'react-redux';
 import store from './store';
 import styles from './App.module.css';
@@ -22,6 +23,7 @@ class App extends Component {
                         <Profile/>
                         <Market/>
                         <Inventory/>
+                        <Customers/>
                     </div>
                 </div>
             </Provider>
@@ -33,7 +35,7 @@ const sideBarStyle = {
     position: 'absolute',
     background: '#344955',
     height: '990px',
-    width: '650px',
+    width: '45%',
     left: '1000px',
     borderStyle: 'solid',
     borderWidth: '6px',
@@ -42,7 +44,7 @@ const sideBarStyle = {
 
 const headerStyle = {
     position: 'absolute',
-    left: '280px',
+    left: '45%',
     color: 'white'
 };
 
