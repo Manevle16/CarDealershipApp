@@ -4,21 +4,33 @@ import {
     SELECT_CUSTOMER,
     SET_HAGGLE_FORM,
     SELECT_CAR,
-    SHOW_FORM, CLOSE_FORM, SALE_SUCCEEDED
+    SHOW_FORM, CLOSE_FORM, SALE_SUCCEEDED,
+    LOGIN, UPDATE_CHANCE
 } from "../actions/types";
 
 const initialState = {
     customerList: [],
-    visibility: 'visible',
+    visibility: 'hidden',
     selectedIndex: -1,
     value: 'refresh',
     refreshDisabled: false,
     hagglePrice: '',
-    haggleVisibility: 'none'
+    haggleVisibility: 'none',
+    chance: ''
 };
 
 export default function(state = initialState, action){
     switch (action.type) {
+        case UPDATE_CHANCE:
+            return {
+                ...state,
+                chance: action.payload
+            };
+        case LOGIN:
+            return {
+                ...state,
+                visibility: 'visible'
+            };
         case SALE_SUCCEEDED:
             return {
                 ...state,
@@ -36,7 +48,8 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 value: action.payload.value,
-                refreshDisabled: action.payload.refreshDisabled
+                refreshDisabled: action.payload.refreshDisabled,
+                hagglePrice: action.payload.hagglePrice
             };
         case INIT_CUSTOMER:
             return {
@@ -56,7 +69,8 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 haggleVisibility: "none",
-                hagglePrice: ''
+                hagglePrice: '',
+                chance: ''
             };
         default:
             return state;

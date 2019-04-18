@@ -65,7 +65,7 @@ class SideBarForm extends Component {
                 <button onClick={this.displayLogin} className={styles.buttonClass} style={{top: '40px', left: '120px'}}>Login</button>
                 <button onClick={this.saveProfile} className={styles.buttonClass}
                         style={{top:'40px', left: '215px', visibility: this.state.buttonVisibility}}>Save</button>
-                <button onClick={this.addMoney} className={styles.buttonClass} style={{top: '40px', left: '300px'}}>Add</button>
+                <button onClick={this.addMoney} className={styles.buttonClass} style={{top: '40px', left: '300px', display: 'none'}}>Add</button>
             </div>
 
         );

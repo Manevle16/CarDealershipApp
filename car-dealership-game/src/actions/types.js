@@ -12,6 +12,7 @@ export const CREATE_ACCOUNT = "CREATE_ACCOUNT";
 export const LOGIN = "LOGIN";
 export const SAVE = "SAVE";
 export const ADD_MONEY = "ADD_MONEY";
+export const SUBTRACT_MONEY = "SUBTRACT_MONEY";
 
 //Market actions
 export const INIT_MARKET = "INIT_MARKET";
@@ -31,4 +32,5 @@ export const DISABLE_CUSTOMER_REFRESH = "DISABLE_CUSTOMER_REFRESH";
 export const SET_HAGGLE_FORM = "SET_HAGGLE_FORM";
 export const SALE_SUCCEEDED = "SALE_SUCCEEDED";
 export const SALE_FAILED = "SALE_FAILED";
+export const UPDATE_CHANCE = "UPDATE_CHANCE";
 

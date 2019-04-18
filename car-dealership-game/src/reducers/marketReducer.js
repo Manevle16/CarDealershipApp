@@ -3,7 +3,7 @@ import {INIT_MARKET, BUY_CAR, LOGIN, DISABLE_MARKET_REFRESH, SELECT_MARKET_CAR} 
 
 const initialState = {
     marketCars: [],
-    visibility: 'visible',
+    visibility: 'hidden',
     refreshDisabled: false,
     value: 'refresh',
     selectedIndex: -1

@@ -14,7 +14,7 @@ class Profile extends Component {
                 S3_Url: ''
             },
             panelInfo: {
-                display: 'block'
+                display: 'none'
             }
         }
     }
@@ -29,7 +29,7 @@ class Profile extends Component {
                 <h3 className={styles.panelHeader}>User:</h3>
                 <h3 className={styles.panelHeader} style={{left: '60px'}}>{this.state.info.username}</h3>
                 <h3 className={styles.panelHeader} style={{top: '30px'}}>Account Balance:</h3>
-                <h3 className={styles.panelHeader} style={{top: '30px', left: '165px'}}>{this.state.info.bankAccount}</h3>
+                <h3 className={styles.panelHeader} style={{top: '30px', left: '165px'}}>{this.state.info.bankAccount.toLocaleString()}</h3>
             </div>
         );
     }

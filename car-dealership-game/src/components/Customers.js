@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styles from '../App.module.css';
 import {connect} from "react-redux";
-import {initCustomers, selectCustomer, setRefreshDisabled, setHaggleForm, tryOffer} from "../actions/customerActions";
+import {initCustomers, selectCustomer, setRefreshDisabled, setHaggleForm, tryOffer, updateChance} from "../actions/customerActions";
 import store from "../store";
 
 class Customers extends Component {
@@ -10,12 +10,13 @@ class Customers extends Component {
 
         this.state = {
             customerList: [],
-            visibility: 'visible',
+            visibility: 'hidden',
             selectedIndex: -1,
             refreshDisabled: false,
             value: "refresh",
             haggleVisibility: "none",
-            hagglePrice: ''
+            hagglePrice: '',
+            chance: ''
         };
 
         this.refresh = this.refresh.bind(this);
@@ -31,17 +32,21 @@ class Customers extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        this.setState(nextProps);
+        if(this.state.chance !== nextProps.chance){
+            this.setState({chance: nextProps.chance})
+        }else {
+            this.setState(nextProps);
+        }
     }
 
     refresh = () =>{
-        this.props.setRefreshDisabled(30, true);
+        this.props.setRefreshDisabled(30, true, this.state.hagglePrice);
         let count = 30;
         let counter = setInterval(() => {
             count--;
-            this.props.setRefreshDisabled(count, true);
+            this.props.setRefreshDisabled(count, true, this.state.hagglePrice);
             if(count === 0){
-                this.props.setRefreshDisabled("refresh", false);
+                this.props.setRefreshDisabled("refresh", false, this.state.hagglePrice);
                 clearInterval(counter);
             }
         }, 1000);
@@ -61,6 +66,7 @@ class Customers extends Component {
     };
 
     onClose = () => {
+        this.setState({chance: ''});
         this.props.setHaggleForm('', 'none');
     };
 
@@ -73,6 +79,9 @@ class Customers extends Component {
     };
 
     changeHaggle = (e) => {
+        this.props.updateChance( e.target.value, store.getState().inventory.carInventory, store.getState().inventory.selectedIndex,
+            this.state.customerList, this.state.selectedIndex);
+
         this.setState( {hagglePrice:  e.target.value});
     };
 
@@ -95,20 +104,21 @@ class Customers extends Component {
         })(this.state.refreshDisabled, this.state.value, this.refresh);
 
         const carName = ((carInventory, ind, customers, custInd) => {
-            if(carInventory[ind] != null) {
+            if(carInventory[ind] != null && customers[custInd] != null) {
                 let man = "Manufacturer: " + carInventory[ind].Manufacturer;
                 let mod = "Model: " + carInventory[ind].Model;
                 let mPrice = "Market Price: $" + carInventory[ind].Price.toLocaleString();
                 let customer = "Customer: " + customers[custInd].First_name + " " + customers[custInd].Last_name;
                 let budget = "Budget: $" + customers[custInd].Budget.toLocaleString();
                 let manPref = "Manufacturer Preference: " + customers[custInd].Manufacturer_preference;
-                return [<h3 style={{top: '-20px', left: '5px', position: 'relative'}}>{man}</h3>,
+                return [<h3 style={{top: '-20px', left: '5px', position: 'relative', zIndex: -1}}>{man}</h3>,
                         <h3 style={{top: '-30px', left: '5px', position: 'relative'}}>{mod}</h3>,
                         <h3 style={{top: '-75px', left: '400px', position: 'relative'}}>{mPrice}</h3>,
                         <hr style={{top: '-90px', position: 'relative', border: '2px solid #000'}}/>,
                         <h3 style={{top: '-100px', left: '5px', position: 'relative'}}>{customer}</h3>,
                         <h3 style={{top: '-112px', left: '400px', position: 'relative'}}>{budget}</h3>,
-                        <h3 style={{top: '-155px', left: '5px', position: 'relative'}}>{manPref}</h3>];
+                        <h3 style={{top: '-155px', left: '5px', position: 'relative'}}>{manPref}</h3>,
+                        <hr style={{top: '125px', width: '700px', position: 'absolute', border: '2px solid #000'}}/>];
             }
         })(store.getState().inventory.carInventory, store.getState().inventory.selectedIndex, this.state.customerList, this.state.selectedIndex);
 
@@ -131,6 +141,8 @@ class Customers extends Component {
                         <h3 style={{top: '-108px', left: '5px', position: 'relative'}}>Desired Selling Price:</h3>
                         <input className={styles.formInput} style={{top: '-150px', left: '190px', height: '20px'}} value={this.state.hagglePrice} onChange={this.changeHaggle}/>
                         <button type='submit' className={styles.buttonClass} style={confirmButtonStyle}>Offer Sale</button>
+                        <h3 style={{top: '-240px', left: '400px', position: 'relative'}}>Chance Of Sale: </h3>
+                        <h3 style={{top: '-284px', left: '545px', position: 'relative'}}>{this.state.chance}%</h3>
                     </form>
                 </div>
             </div>
@@ -169,8 +181,9 @@ const mapStateToProps = (state) => {
         refreshDisabled: state.customer.refreshDisabled,
         value: state.customer.value,
         hagglePrice: state.customer.hagglePrice,
-        haggleVisibility: state.customer.haggleVisibility
+        haggleVisibility: state.customer.haggleVisibility,
+        chance: state.customer.chance
     }
 };
 
-export default connect(mapStateToProps, {initCustomers, selectCustomer, setRefreshDisabled, setHaggleForm, tryOffer})(Customers);
+export default connect(mapStateToProps, {initCustomers, selectCustomer, setRefreshDisabled, setHaggleForm, tryOffer, updateChance})(Customers);

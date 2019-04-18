@@ -1,4 +1,4 @@
-import {INIT_PARKING_LOT, PARK_CAR, UNPARK_CAR} from "../actions/types";
+import {INIT_PARKING_LOT, PARK_CAR, UNPARK_CAR, LOGIN} from "../actions/types";
 
 
 const initialState = {
@@ -8,6 +8,11 @@ const initialState = {
 
 export default function(state = initialState, action){
     switch(action.type) {
+        case LOGIN:
+            return {
+                ...state,
+                parkingLot: action.payload.parkingLot
+            };
         case PARK_CAR:
             return {
                 ...state,

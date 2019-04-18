@@ -1,4 +1,5 @@
-import {DISABLE_CUSTOMER_REFRESH, INIT_CUSTOMER, SELECT_CUSTOMER, SET_HAGGLE_FORM, SALE_FAILED, SALE_SUCCEEDED, ADD_MONEY, REMOVE_CAR, UNPARK_CAR} from "./types";
+import {DISABLE_CUSTOMER_REFRESH, INIT_CUSTOMER, SELECT_CUSTOMER, SET_HAGGLE_FORM,
+    SALE_FAILED, SALE_SUCCEEDED, ADD_MONEY, REMOVE_CAR, UNPARK_CAR, UPDATE_CHANCE} from "./types";
 import store from '../store';
 import uuid from "uuid";
 
@@ -42,12 +43,13 @@ export const selectCustomer = (ind) => dispatch => {
     })
 };
 
-export const setRefreshDisabled = (value, refreshDisabled) => dispatch => {
+export const setRefreshDisabled = (value, refreshDisabled, hagglePrice) => dispatch => {
     dispatch({
         type: DISABLE_CUSTOMER_REFRESH,
         payload: {
             value,
-            refreshDisabled
+            refreshDisabled,
+            hagglePrice
         }
     })
 };
@@ -65,7 +67,7 @@ export const setHaggleForm = (hagglePrice, haggleVisibility) => dispatch => {
 export const tryOffer = (offer, carList, carInd, customerList, custInd) => dispatch => {
     let chance = 100;
 
-    if(isNaN(offer)){
+    if(isNaN(offer) || offer === ''){
         alert("Offer must be an integer");
         dispatch({
             type: SALE_FAILED
@@ -146,4 +148,56 @@ export const tryOffer = (offer, carList, carInd, customerList, custInd) => dispa
         });
         alert("Sale failed");
     }
+};
+
+export const updateChance = (offer, carList, carInd, customerList, custInd) => dispatch => {
+    let chance = 100;
+
+    if(isNaN(offer) || offer === ''){
+        dispatch({
+            type: UPDATE_CHANCE,
+            payload: ''
+        });
+        return;
+    }
+    offer = parseInt(offer);
+    let man = carList[carInd].Manufacturer;
+    let msrp = parseInt(carList[carInd].Price);
+    let budget = customerList[custInd].Budget;
+    let pref = customerList[custInd].Manufacturer_preference;
+
+    if(offer > budget){
+        dispatch({
+            type: UPDATE_CHANCE,
+            payload: 0
+        });
+        return;
+    }
+
+    if(man !== pref){
+        chance -= 20;
+    }
+
+    let difP = 0;
+    if(offer > msrp) {
+        difP = parseInt((1 - Math.pow((msrp / offer), 2)) * 100);
+        console.log(difP);
+    }
+
+
+    chance -= difP;
+
+    console.log(chance);
+    if(chance < 0){
+        dispatch({
+            type: UPDATE_CHANCE,
+            payload: 0
+        });
+    }else{
+        dispatch({
+            type: UPDATE_CHANCE,
+            payload: chance
+        })
+    }
+
 };

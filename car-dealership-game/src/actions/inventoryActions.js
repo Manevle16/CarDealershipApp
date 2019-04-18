@@ -1,4 +1,4 @@
-import {ADD_CAR, SELECT_CAR, REMOVE_CAR} from "./types";
+import {ADD_CAR, SELECT_CAR} from "./types";
 import store from '../store';
 
 export const addCar = (car) => dispatch => {

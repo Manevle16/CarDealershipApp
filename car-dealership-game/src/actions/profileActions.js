@@ -1,4 +1,4 @@
-import {LOGIN, CREATE_ACCOUNT, SAVE, ADD_MONEY} from "./types";
+import {LOGIN, CREATE_ACCOUNT, SAVE, ADD_MONEY, SUBTRACT_MONEY} from "./types";
 import store from "../store";
 let AWS = require( "../AWSHandler");
 let config = require("../Utils/config");
@@ -9,6 +9,12 @@ export const addMoney = () => dispatch => {
     dispatch({
         type: ADD_MONEY,
         payload: 1000
+    })
+};
+export const subtractMoney = (m) => dispatch => {
+    dispatch({
+        type: SUBTRACT_MONEY,
+        payload: m
     })
 };
 
@@ -25,15 +31,12 @@ export const login = (userData) => dispatch => {
 
             AWS.getProfileFromS3(profile.s3_url, function(data){
                 let payload = {
-                    info: {
-                        username: userData.username,
-                        carsSold: data.carsSold,
-                        bankAccount: data.bankAccount,
-                        S3_url: profile.s3_url
-                    },
-                    panelInfo: {
-                        visibility: 'visible'
-                    }
+                    username: userData.username,
+                    carsSold: data.carsSold,
+                    bankAccount: data.bankAccount,
+                    S3_url: profile.s3_url,
+                    carInventory: data.carInventory,
+                    parkingLot: data.parkingLot
                 };
 
                 dispatch({
@@ -73,7 +76,7 @@ export const createAccount = (userData) => dispatch => {
                                 S3_url: S3_url
                             },
                             panelInfo:{
-                                visibility: 'visible'
+                                display: 'block'
                             }
                         };
 
@@ -121,11 +124,13 @@ export const createAccount = (userData) => dispatch => {
 };
 
 export const save = () => dispatch => {
+
     let profile = {
         username: store.getState().profile.info.username,
         carsSold: store.getState().profile.info.carsSold,
         bankAccount: store.getState().profile.info.bankAccount,
-        parkingLot: store.getState().parkingLot.info.parkingLot
+        parkingLot: store.getState().parkingLot.parkingLot,
+        carInventory: store.getState().inventory.carInventory
     };
 
     AWS.saveProfileInS3(profile);

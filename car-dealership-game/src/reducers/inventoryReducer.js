@@ -3,7 +3,7 @@ import {ADD_CAR, LOGIN, SELECT_CAR, REMOVE_CAR} from "../actions/types";
 const initialState = {
     carInventory: [],
     selectedIndex: -1,
-    visibility: 'visible'
+    visibility: 'hidden'
 };
 
 export default function(state = initialState, action){
@@ -11,6 +11,7 @@ export default function(state = initialState, action){
         case LOGIN:
             return {
                 ...state,
+                carInventory: action.payload.carInventory,
                 visibility: 'visible'
             };
         case SELECT_CAR:
@@ -18,20 +19,22 @@ export default function(state = initialState, action){
                 ...state,
                 selectedIndex: action.payload.selectedIndex
             };
-        case ADD_CAR:
-            var cars = JSON.parse(JSON.stringify(state.carInventory));
+        case ADD_CAR: {
+            let cars = JSON.parse(JSON.stringify(state.carInventory));
             cars.push(action.payload);
             return {
                 ...state,
                 carInventory: cars
             };
-        case REMOVE_CAR:
-            var cars = JSON.parse(JSON.stringify(state.carInventory));
+        }
+        case REMOVE_CAR: {
+            let cars = JSON.parse(JSON.stringify(state.carInventory));
             cars.splice(action.payload, 1);
             return {
                 ...state,
                 carInventory: cars
             };
+        }
         default:
             return state
     }

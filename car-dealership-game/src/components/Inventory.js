@@ -11,7 +11,7 @@ class Inventory extends Component {
         this.state = {
             carInventory: [],
             selectedIndex: -1,
-            visibility: 'visible'
+            visibility: 'hidden'
         };
 
         this.onChange = this.onChange.bind(this);

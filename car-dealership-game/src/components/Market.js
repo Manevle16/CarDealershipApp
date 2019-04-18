@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {initMarket, removeCar, setRefreshDisabled, selectMarketCar} from "../actions/marketActions";
 import {addCar} from "../actions/inventoryActions";
 import {parkCar} from "../actions/parkingLotActions";
+import {subtractMoney} from "../actions/profileActions";
 import {connect} from "react-redux";
 import styles from '../App.module.css';
+import store from "../store";
 
 class Market extends Component {
 
@@ -13,7 +15,7 @@ class Market extends Component {
         this.state = {
             marketCars: [],
             selectedIndex: null,
-            visibility: 'visible',
+            visibility: 'hidden',
             refreshDisabled: false,
             value: "refresh"
         };
@@ -41,10 +43,14 @@ class Market extends Component {
     buyCar = (e) => {
         e.preventDefault();
         let marketCarsCopy = JSON.parse(JSON.stringify(this.state.marketCars));
-        this.props.addCar(marketCarsCopy[this.state.selectedIndex]);
-        this.props.parkCar(marketCarsCopy[this.state.selectedIndex]);
-        this.props.removeCar(this.state.selectedIndex, marketCarsCopy);
-      //  e.target[0].selectedIndex = -1;
+        if(marketCarsCopy[this.state.selectedIndex].Price <= store.getState().profile.info.bankAccount) {
+            this.props.subtractMoney(marketCarsCopy[this.state.selectedIndex].Price);
+            this.props.addCar(marketCarsCopy[this.state.selectedIndex]);
+            this.props.parkCar(marketCarsCopy[this.state.selectedIndex]);
+            this.props.removeCar(this.state.selectedIndex, marketCarsCopy);
+        }else{
+            alert("Not enough balance in account for that");
+        }
     };
 
     onChange = (e) => {
@@ -116,4 +122,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {initMarket, removeCar, addCar, parkCar, setRefreshDisabled, selectMarketCar})(Market);
+export default connect(mapStateToProps, {initMarket, removeCar, addCar, parkCar, setRefreshDisabled, selectMarketCar, subtractMoney})(Market);
