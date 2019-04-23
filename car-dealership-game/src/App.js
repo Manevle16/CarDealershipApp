@@ -8,7 +8,6 @@ import Inventory from './components/Inventory';
 import Customers from './components/Customers';
 import {Provider} from 'react-redux';
 import store from './store';
-import styles from './App.module.css';
 
 class App extends Component {
     render() {

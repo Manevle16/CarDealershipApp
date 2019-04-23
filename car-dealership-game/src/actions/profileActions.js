@@ -28,7 +28,6 @@ export const login = (userData) => dispatch => {
     xhttp.onreadystatechange = function(){
         if(xhttp.readyState === 4 && xhttp.status === 200){
             let profile = JSON.parse(xhttp.response)[0];
-
             AWS.getProfileFromS3(profile.s3_url, function(data){
                 let payload = {
                     username: userData.username,

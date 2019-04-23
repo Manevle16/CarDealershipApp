@@ -1,4 +1,4 @@
-import {INIT_MARKET, BUY_CAR, LOGIN, DISABLE_MARKET_REFRESH, SELECT_MARKET_CAR} from "../actions/types";
+import {INIT_MARKET, BUY_CAR, LOGIN, DISABLE_MARKET_REFRESH, SELECT_MARKET_CAR, CREATE_ACCOUNT} from "../actions/types";
 
 
 const initialState = {
@@ -22,6 +22,7 @@ export default function (state = initialState, action) {
                 refreshDisabled: action.payload.refreshDisabled,
                 value: action.payload.value
             };
+        case CREATE_ACCOUNT:
         case LOGIN:
             return {
                 ...state,

@@ -48,5 +48,34 @@ module.exports = function(){
                res.status(400).send(JSON.stringify({message: "A parameter is missing"}));
            }
         });
+
+    employeeRouter.route("/addEmployeeRating")
+        .post((req, res) => {
+            let username = req.query.username;
+            let comment = req.query.comment;
+            let rating = req.query.rating;
+            let custID = req.query.custID;
+
+            if(username && comment && rating && custID){
+                employeeRepo.getEmployeeByName(username, (err, employeeID) => {
+                    if(err){
+                        res.status(400).send(JSON.stringify({message: "Server error rating employee"}));
+                        console.log(err);
+                    }else{
+                        let date = new Date();
+                        let timestamp =  date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() +
+                            ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+                        employeeRepo.addEmployeeRating(comment, timestamp, rating, employeeID, custID, (err) => {
+                            if(err){
+                                res.status(400).send(JSON.stringify({message: "Server error rating employee"}));
+                                console.log(err);
+                            }else{
+                                res.status(200).send(JSON.stringify({message: "Employee rated"}));
+                            }
+                        });
+                    }
+                })
+            }
+        });
     return employeeRouter;
 };

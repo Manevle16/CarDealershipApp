@@ -14,6 +14,19 @@ module.exports = (function(){
                 [carsSold, username], (err) => {
                     callback(err);
                 })
+        },
+
+        getEmployeeByName: (username, callback) => {
+            return connection.query("SELECT ID FROM Employee WHERE First_name = ?", [username], (err, body) =>{
+                callback(err, body[0].ID);
+            })
+        },
+
+        addEmployeeRating: (comment, date, rating, Employee_FK, Customer_FK, callback) => {
+            return connection.query("INSERT INTO Employee_ratings VALUES (NULL, ?, ?, ?, ?, ?)",
+                [comment, date, rating, Employee_FK, Customer_FK], (err) => {
+                    callback(err);
+                });
         }
     }
 })();

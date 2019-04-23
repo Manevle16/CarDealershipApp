@@ -91,7 +91,7 @@
     border-style: solid;
     border-width: 4px;
     border-color: #000;
-    font-size: 18px;
-    font-family: monospace;
+    font-size: 16px;
+    font-family: "Fixedsys", "Courier New", Courier, mono, serif;
     overflow: auto;
 }

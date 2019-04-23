@@ -33,4 +33,5 @@ export const SET_HAGGLE_FORM = "SET_HAGGLE_FORM";
 export const SALE_SUCCEEDED = "SALE_SUCCEEDED";
 export const SALE_FAILED = "SALE_FAILED";
 export const UPDATE_CHANCE = "UPDATE_CHANCE";
+export const CUSTOMER_LEFT = "CUSTOMER_LEFT";
 

@@ -72,7 +72,6 @@ class Customers extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(store.getState());
         this.props.tryOffer(this.state.hagglePrice, store.getState().inventory.carInventory, store.getState().inventory.selectedIndex,
             this.state.customerList, this.state.selectedIndex);
 
@@ -128,8 +127,8 @@ class Customers extends Component {
                 {refreshButton}
                 <h2 className={styles.panelHeader}>Customers</h2>
                 <h3 className={styles.panelHeader} style={{top:'35px', left:'10px'}}>Full Name</h3>
-                <h3 className={styles.panelHeader} style={{top:'35px', left:'280px'}}>Desired Maufacturer</h3>
-                <h3 className={styles.panelHeader} style={{top:'35px', left:'550px'}}>Budget</h3>
+                <h3 className={styles.panelHeader} style={{top:'35px', left:'250px'}}>Desired Manufacturer</h3>
+                <h3 className={styles.panelHeader} style={{top:'35px', left:'510px'}}>Budget</h3>
                 <select onChange={this.onChange} className={styles.marketSelect} size='6' style={{top:'60px'}}>
                     {customers}
                 </select>

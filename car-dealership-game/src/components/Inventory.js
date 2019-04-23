@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import styles from '../App.module.css';
 import {selectCar} from "../actions/inventoryActions";
-import store from "../store";
 
 class Inventory extends Component {
     constructor(props){

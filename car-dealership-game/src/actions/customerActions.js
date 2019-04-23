@@ -1,5 +1,6 @@
 import {DISABLE_CUSTOMER_REFRESH, INIT_CUSTOMER, SELECT_CUSTOMER, SET_HAGGLE_FORM,
-    SALE_FAILED, SALE_SUCCEEDED, ADD_MONEY, REMOVE_CAR, UNPARK_CAR, UPDATE_CHANCE} from "./types";
+    SALE_FAILED, SALE_SUCCEEDED, ADD_MONEY, REMOVE_CAR, UNPARK_CAR, UPDATE_CHANCE,
+    CUSTOMER_LEFT} from "./types";
 import store from '../store';
 import uuid from "uuid";
 
@@ -72,23 +73,32 @@ export const tryOffer = (offer, carList, carInd, customerList, custInd) => dispa
         dispatch({
             type: SALE_FAILED
         });
-        alert("Sale failed");
         return;
     }
     offer = parseInt(offer);
     let man = carList[carInd].Manufacturer;
     let msrp = parseInt(carList[carInd].Price);
     let key = carList[carInd].key;
+    let carId = carList[carInd].ID;
     let budget = customerList[custInd].Budget;
     let pref = customerList[custInd].Manufacturer_preference;
 
     if(offer > budget){
         alert("That is out of his budget");
         customerList[custInd].chances += 1;
+        if(customerList[custInd].chances  === 3){
+            alert("Customer has angrily left the dealership");
+            let newCustomerList = customerList.slice(0);
+            let customer = newCustomerList.splice(custInd, 1);
+            createRating(customer[0].chances, store.getState().profile.info.username, customer[0].ID);
+            dispatch({
+                type: CUSTOMER_LEFT,
+                payload: newCustomerList
+            })
+        }
         dispatch({
             type: SALE_FAILED
         });
-        alert("Sale failed");
         return;
     }
 
@@ -107,11 +117,21 @@ export const tryOffer = (offer, carList, carInd, customerList, custInd) => dispa
 
     console.log(chance);
     if(chance < 0){
+        alert("Sale failed");
         customerList[custInd].chances += 1;
+        if(customerList[custInd].chances  === 3){
+            alert("Customer has angrily left the dealership");
+            let newCustomerList = customerList.slice(0);
+            let customer = newCustomerList.splice(custInd, 1);
+            createRating(customer[0].chances, store.getState().profile.info.username, customer[0].ID);
+            dispatch({
+                type: CUSTOMER_LEFT,
+                payload: newCustomerList
+            })
+        }
         dispatch({
             type: SALE_FAILED
         });
-        alert("Sale failed");
         return;
     }
     let rand = Math.floor(Math.random() * 101);
@@ -119,7 +139,30 @@ export const tryOffer = (offer, carList, carInd, customerList, custInd) => dispa
     if(rand <= chance){
 
         let newCustomerList = customerList.slice(0);
-        newCustomerList.splice(custInd, 1);
+        let customer = newCustomerList.splice(custInd, 1);
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState === 4 && xhttp.status === 200){
+                let body = JSON.parse(xhttp.response);
+                console.log(body);
+            }else if(xhttp.readyState === 4){
+                let err = JSON.parse(xhttp.response);
+                alert(err.message);
+            }
+        };
+
+        xhttp.open("Post", serverUrl + "customer/sellCar", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify({
+            price: offer,
+            username: store.getState().profile.info.username,
+            custID: customer[0].ID,
+            carID: carId
+        }));
+
+        createRating(customer[0].chances, store.getState().profile.info.username, customer[0].ID);
 
         dispatch({
             type: ADD_MONEY,
@@ -141,12 +184,23 @@ export const tryOffer = (offer, carList, carInd, customerList, custInd) => dispa
             payload: key
         });
 
+        alert("Sale succeeded");
     }else{
+        alert("Sale failed");
         customerList[custInd].chances += 1;
+        if(customerList[custInd].chances  === 3){
+            alert("Customer has angrily left the dealership");
+            let newCustomerList = customerList.slice(0);
+            let customer = newCustomerList.splice(custInd, 1);
+            createRating(customer[0].chances, store.getState().profile.info.username, customer[0].ID);
+            dispatch({
+                type: CUSTOMER_LEFT,
+                payload: newCustomerList
+            })
+        }
         dispatch({
             type: SALE_FAILED
         });
-        alert("Sale failed");
     }
 };
 
@@ -200,4 +254,53 @@ export const updateChance = (offer, carList, carInd, customerList, custInd) => d
         })
     }
 
+};
+
+let createRating = (chances, username, custID) => {
+
+    let xhttp = new XMLHttpRequest();
+    let rating = null;
+    let comment = null;
+    switch (chances) {
+        case 3:{
+            rating = 1;
+            comment = "Tried to cheat me, awful experience";
+            break;
+        }
+        case 2:{
+            rating = 2;
+            comment = "I'm not sure why I bought it";
+            break;
+        }
+        case 1:{
+            rating = 4;
+            comment = "Haggled a bit but I'm happy with the price";
+            break;
+        }
+        case 0: {
+            rating = 5;
+            comment = "Loved the price when I saw it, what a deal";
+            break;
+        }
+
+    }
+
+    xhttp.onreadystatechange = function(){
+        if(xhttp.readyState === 4 && xhttp.status === 200){
+            let body = JSON.parse(xhttp.response);
+            console.log(body);
+        }else if(xhttp.readyState === 4){
+            let err = JSON.parse(xhttp.response);
+            alert(err.message);
+        }
+    };
+
+    xhttp.open("Post", serverUrl + "employee/addEmployeeRating", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify({
+        comment,
+        rating,
+        username,
+        custID,
+    }));
 };

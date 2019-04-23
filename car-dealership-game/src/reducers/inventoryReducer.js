@@ -1,4 +1,4 @@
-import {ADD_CAR, LOGIN, SELECT_CAR, REMOVE_CAR} from "../actions/types";
+import {ADD_CAR, LOGIN, SELECT_CAR, REMOVE_CAR, CREATE_ACCOUNT,} from "../actions/types";
 
 const initialState = {
     carInventory: [],
@@ -34,6 +34,13 @@ export default function(state = initialState, action){
                 ...state,
                 carInventory: cars
             };
+        }
+        case CREATE_ACCOUNT: {
+            return {
+                ...state,
+                visibility: 'visible'
+            }
+
         }
         default:
             return state

@@ -95,11 +95,11 @@ class Market extends Component {
                 <h2 className={styles.panelHeader}>Market</h2>
                 {refreshButton}
                 <form onSubmit={this.buyCar} >
-                    <h3 className={styles.panelHeader} style={{top:'35px', left:'10px'}}>Maufacturer</h3>
-                    <h3 className={styles.panelHeader} style={{top:'35px', left:'185px'}}>Model</h3>
-                    <h3 className={styles.panelHeader} style={{top:'35px', left:'465px'}}>Year</h3>
-                    <h3 className={styles.panelHeader} style={{top:'35px', left:'540px'}}>Color</h3>
-                    <h3 className={styles.panelHeader} style={{top:'35px', left:'640px'}}>Price</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'10px'}}>Manufacturer</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'165px'}}>Model</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'415px'}}>Year</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'480px'}}>Color</h3>
+                    <h3 className={styles.panelHeader} style={{top:'35px', left:'590px'}}>Price</h3>
                     <select className={styles.marketSelect} onChange={this.onChange}  size='6' style={{top:'60px'}}>
                         {marketOptions}
                     </select>

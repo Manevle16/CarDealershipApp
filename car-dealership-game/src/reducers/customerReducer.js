@@ -5,7 +5,7 @@ import {
     SET_HAGGLE_FORM,
     SELECT_CAR,
     SHOW_FORM, CLOSE_FORM, SALE_SUCCEEDED,
-    LOGIN, UPDATE_CHANCE
+    LOGIN, UPDATE_CHANCE, CUSTOMER_LEFT, CREATE_ACCOUNT
 } from "../actions/types";
 
 const initialState = {
@@ -26,17 +26,20 @@ export default function(state = initialState, action){
                 ...state,
                 chance: action.payload
             };
+        case CREATE_ACCOUNT:
         case LOGIN:
             return {
                 ...state,
                 visibility: 'visible'
             };
+        case CUSTOMER_LEFT:
         case SALE_SUCCEEDED:
             return {
                 ...state,
                 customerList: action.payload,
                 haggleVisibility: "none",
-                hagglePrice: ''
+                hagglePrice: '',
+                chane: ''
             };
         case SET_HAGGLE_FORM:
             return {
