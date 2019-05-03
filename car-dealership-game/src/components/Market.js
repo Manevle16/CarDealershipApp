@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {initMarket, removeCar, setRefreshDisabled, selectMarketCar} from "../actions/marketActions";
 import {addCar} from "../actions/inventoryActions";
 import {parkCar} from "../actions/parkingLotActions";
-import {subtractMoney} from "../actions/profileActions";
+import {subtractMoney, save} from "../actions/profileActions";
 import {connect} from "react-redux";
 import styles from '../App.module.css';
 import store from "../store";
@@ -48,6 +48,7 @@ class Market extends Component {
             this.props.addCar(marketCarsCopy[this.state.selectedIndex]);
             this.props.parkCar(marketCarsCopy[this.state.selectedIndex]);
             this.props.removeCar(this.state.selectedIndex, marketCarsCopy);
+            this.props.save();
         }else{
             alert("Not enough balance in account for that");
         }
@@ -122,4 +123,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {initMarket, removeCar, addCar, parkCar, setRefreshDisabled, selectMarketCar, subtractMoney})(Market);
+export default connect(mapStateToProps, {initMarket, removeCar, addCar, parkCar, setRefreshDisabled, selectMarketCar, subtractMoney, save})(Market);

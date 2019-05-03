@@ -1,6 +1,8 @@
 import {DISABLE_CUSTOMER_REFRESH, INIT_CUSTOMER, SELECT_CUSTOMER, SET_HAGGLE_FORM,
     SALE_FAILED, SALE_SUCCEEDED, ADD_MONEY, REMOVE_CAR, UNPARK_CAR, UPDATE_CHANCE,
     CUSTOMER_LEFT} from "./types";
+
+import {save} from "./profileActions";
 import store from '../store';
 import uuid from "uuid";
 
@@ -185,6 +187,7 @@ export const tryOffer = (offer, carList, carInd, customerList, custInd) => dispa
         });
 
         alert("Sale succeeded");
+        dispatch(save());
     }else{
         alert("Sale failed");
         customerList[custInd].chances += 1;

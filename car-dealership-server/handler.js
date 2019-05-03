@@ -1,5 +1,8 @@
 let express = require('express');
 let bodyParser = require('body-parser');
+var https = require('https');
+var http = require('http');
+var fs = require('fs');
 
 let app = express();
 let port = process.env.PORT || 3000;
@@ -22,7 +25,14 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/', (req, res) => res.send('Hello World!'));
+var options = {
+    key: fs.readFileSync( __dirname + '/myCA.key'),
+    cert: fs.readFileSync( __dirname + '/myCA.pem'),
+    passphrase: "3Fbb2e4df8"
+};
+
+
+
 app.use("/profiles", profileRouter());
 app.use("/employee", employeeRouter());
 app.use("/car", carRouter());
@@ -31,3 +41,9 @@ app.use("/customer", customerRouter());
 app.listen(port, function(){
     console.log("Running  on port " + port);
 });
+app.get('/', function(req, res){
+    res.send('Hello World!');
+});
+
+http.createServer(app).listen(80);
+https.createServer(options, app).listen(443);
